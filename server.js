@@ -32,7 +32,7 @@ app.post("api/notes", function (req, res) {
             console.log(err);
         }
         else {
-            notes = JSON.parsa(data);
+            notes = JSON.parse(data);
             notes.forEach(note => ids.push(note.id));
             if (ids.length === 0) {
                 req.body.id = 1;
@@ -81,4 +81,7 @@ app.delete("/api/notes/:id", function (req, res) {
             });
         }
     });
+});
+app.listen(PORT, function () {
+    console.log("Server is listening on: http://localhost:" + PORT);
 });
