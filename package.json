@@ -1,0 +1,19 @@
+{
+  "name": "notetaker",
+  "version": "1.0.0",
+  "description": "An app that allows user to input notes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bfiles3/NoteTaker.git"
+  },
+  "author": "Brittany Files",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bfiles3/NoteTaker/issues"
+  },
+  "homepage": "https://github.com/bfiles3/NoteTaker#readme"
+}
