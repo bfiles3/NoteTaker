@@ -1,6 +1,7 @@
 // dependencies 
 const express = require("express");
 const fs = require("fs");
+const { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } = require("constants");
 const app = express();
 const PORT = process.env.PORT || 1004;
 app.listen(PORT);
@@ -33,7 +34,7 @@ app.post("api/notes", function (req,res) {
         }
         else {
             notes = JSON.parsa(data);
-            notes.forEach(item => ids.push(item.id));
+            notes.forEach(note => ids.push(note.id));
             if (ids.length === 0){
                 req.body.id = 1;
             } else {
@@ -43,7 +44,7 @@ app.post("api/notes", function (req,res) {
             }
         notes.push(newNote);
 
-        fs.writeFile(_dirname + "/db/db.json", "utf8", function (err, data){
+        fs.writeFile(_dirname + "/db/db.json", "utf8", JSON.stringify(notes), function (err){
             if (err) {
                 console.log(err);
             }
@@ -63,6 +64,17 @@ app.delete("/api/notes/:id", function (req, res){
     fs.readFile(_dirname + "/db/db.json", "utf8", function (err, data){
         if (err) {
             return console.log(err);
+        } else {
+            let notes = JSON.parse(data).filter (note => {
+                if (note.id != search.id) {
+                    return notes
+                }
+            });
+        fs.writeFile(_dirname + "/db/db.json", JSON.stringify(notes), function (err){
+            return console.log(err);
+        }
+        });
+
         }
     }
 })
