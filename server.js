@@ -57,3 +57,12 @@ app.post("api/notes", function (req,res) {
 
   });
 }); 
+
+// deleting notes
+app.delete("/api/notes/:id", function (req, res){
+    fs.readFile(_dirname + "/db/db.json", "utf8", function (err, data){
+        if (err) {
+            return console.log(err);
+        }
+    }
+})
