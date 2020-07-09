@@ -8,6 +8,7 @@
 *  [Questions](#questions)
 ## Description
 [Repository](https://github.com/bfiles3/NoteTaker)
+![](/db/ss1.png)
 
 This app was created to allow users to input and save data as notes. Within the app, the user also has the ability to look over previous notes, as well as delete past notes. 
 
